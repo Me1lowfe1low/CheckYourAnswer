@@ -9,10 +9,11 @@ import SwiftUI
 
 struct QuestionView: View {
     @Binding var questionView: TestDetails.Question
+    var questionNumber: Int
     
     var body: some View {
         HStack {
-            Label("\($questionView.id)", systemImage: "number")
+            Label("\(questionNumber)", systemImage: "number")
             Divider()
             Text(questionView.question)
         }
@@ -22,6 +23,6 @@ struct QuestionView: View {
 
 struct QuestionView_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionView(questionView: .constant(TestDetails.SampleOfData[0].questionList[0]))
+        QuestionView(questionView: .constant(TestDetails.SampleOfData[0].questionList[0]), questionNumber: 1)
     }
 }

@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct TestDescriptionView: View {
-    //@State var testsObjects = TestDetails
     @Binding var testObjects : TestDetails
     
     var body: some View {
         List {
-            ForEach($testObjects.questionList) { $exactQuestion in
-                NavigationLink(destination: AnswerQuestionView(question: $exactQuestion ) ) {
-                    QuestionView(questionView: $exactQuestion )
+            ForEach($testObjects.questionList.indices) { exactQuestionId in
+                NavigationLink(destination: AnswerQuestionView(question: $testObjects.questionList[exactQuestionId], currentQuestionId: exactQuestionId  ) ) {
+                    QuestionView(questionView: $testObjects.questionList[exactQuestionId],  questionNumber: exactQuestionId )
                 }
             }
         }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AnswerQuestionView: View {
     @Binding var question : TestDetails.Question
+    var currentQuestionId: Int
     
     var body: some View {
         VStack {
@@ -22,6 +23,7 @@ struct AnswerQuestionView: View {
             List {
                 ForEach($question.answersList) { $answer in
                     AnswerView(answer: $answer)
+                        .multilineTextAlignment(.leading)
                         .onTapGesture{
                            // Action
                         }
@@ -29,7 +31,7 @@ struct AnswerQuestionView: View {
             }
             Button(action: {}, label: {Text("Check")} )
         }
-        .navigationTitle(String("Question #\($question.id)"))
+        .navigationTitle(String("Question #\(currentQuestionId)"))
         //.navigationBarTitleDisplayMode(.inline)
     }
 }
@@ -37,7 +39,7 @@ struct AnswerQuestionView: View {
 struct AnswerQuestionView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            AnswerQuestionView(question: .constant(TestDetails.SampleOfData[0].questionList[1]))
+            AnswerQuestionView(question: .constant(TestDetails.SampleOfData[0].questionList[1]), currentQuestionId: 1)
         }
     }
 }
