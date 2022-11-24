@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct AnswerView: View {
+    var answer: TestDetails.Answer
+
     var body: some View {
         HStack {
-            Label("Answer #", systemImage: "questionmark.circle")
+            Label("", systemImage: "questionmark.circle")
             Divider()
-            Text("Asnwer text")
+            Text(answer.answer)
                 .padding()
         }
     }
@@ -21,6 +23,6 @@ struct AnswerView: View {
 
 struct AnswerView_Previews: PreviewProvider {
     static var previews: some View {
-        AnswerView()
+        AnswerView(answer: TestDetails.SampleOfData[0].questionList[0].answersList[0])
     }
 }
