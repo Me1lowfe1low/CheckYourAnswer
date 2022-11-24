@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AnswerView: View {
-    var answer: TestDetails.Answer
+    @Binding var answer : TestDetails.Answer
 
     var body: some View {
         HStack {
@@ -23,6 +23,6 @@ struct AnswerView: View {
 
 struct AnswerView_Previews: PreviewProvider {
     static var previews: some View {
-        AnswerView(answer: TestDetails.SampleOfData[0].questionList[0].answersList[0])
+        AnswerView(answer: .constant(TestDetails.SampleOfData[0].questionList[0].answersList[0]))
     }
 }

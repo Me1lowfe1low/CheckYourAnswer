@@ -35,7 +35,7 @@ extension TestDetails {
     }
     
     struct Answer: Identifiable {
-        var id: UUID
+        let id: UUID
         var answer: String
         var isCorrect: Bool
         
