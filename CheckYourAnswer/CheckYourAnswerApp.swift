@@ -9,10 +9,12 @@ import SwiftUI
 
 @main
 struct CheckYourAnswerApp: App {
+    @State var dataExample : [TestDetails] = TestDetails.SampleOfData
+    
     var body: some Scene {
         WindowGroup {
             NavigationView{
-                ContentView()
+                MainAppScreen(testsObjects: $dataExample)
             }
         }
     }
