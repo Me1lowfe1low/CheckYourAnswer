@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TestDetails: Identifiable {
+struct TestDetails: Identifiable, Decodable {
     let id: UUID
     var title: String
     var questionList: [Question]
@@ -22,7 +22,7 @@ struct TestDetails: Identifiable {
 }
 
 extension TestDetails {
-    struct Question: Identifiable {
+    struct Question: Identifiable, Decodable {
         let id: UUID
         var question: String
         var answersList: [Answer]
@@ -34,7 +34,7 @@ extension TestDetails {
         }
     }
     
-    struct Answer: Identifiable {
+    struct Answer: Identifiable, Decodable {
         let id: UUID
         var answer: String
         var isCorrect: Bool
@@ -46,7 +46,6 @@ extension TestDetails {
         }
     }
 }
-
 
 extension TestDetails {
     static let SampleOfData: [TestDetails] =

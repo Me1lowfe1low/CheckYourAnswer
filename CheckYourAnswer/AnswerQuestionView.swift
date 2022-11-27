@@ -17,13 +17,14 @@ struct AnswerQuestionView: View {
                 RoundedRectangle(cornerRadius: 40)
                     .fill(Gradient(colors: [.blue,.green]).shadow(.drop(color: .blue, radius: 10)))
                 Text(question.question)
-                    .scaledToFit()
+                    .multilineTextAlignment(.center)
+                    .padding()
             }
             .padding()
             List {
                 ForEach($question.answersList) { $answer in
                     AnswerView(answer: $answer)
-                        .multilineTextAlignment(.leading)
+                        .multilineTextAlignment(.center)
                         .onTapGesture{
                            // Action
                         }
