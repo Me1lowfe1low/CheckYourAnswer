@@ -30,7 +30,7 @@ struct AnswerQuestionView: View {
                         }
                 }
             }
-            Button(action: {}, label: {Text("Check")} )
+            Button(action: {}, label: {Text("Continue")} )
         }
         .navigationTitle(String("Question #\(currentQuestionId)"))
         //.navigationBarTitleDisplayMode(.inline)
